@@ -1,43 +1,26 @@
 version: '3.8'
 services:
-  # The Fridge (Database)
-  mongo:
-    image: mongo:latest
-    container_name: mongo
-    ports:
-      - "27017:27017"
-    networks:
-      - app-network
-
-  # The Brain (Backend)
-  backend:
+  server:
     build:
       context: .
       dockerfile: Dockerfile.backend
-    container_name: backend
     ports:
       - "5000:5000"
-    environment:
-      - MONGO_URI=mongodb://mongo:27017/expense-tracker
+    volumes:
+      - ./server:/app
     depends_on:
       - mongo
-    networks:
-      - app-network
-
-      
-  # The Face (Frontend)
-  frontend:
+  client:
     build:
       context: .
       dockerfile: Dockerfile.frontend
-    container_name: frontend
     ports:
-      - "3000:80"
-    depends_on:
-      - backend
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
+      - "3000:3000"
+    volumes:
+      - ./client:/app
+    stdin_open: true
+    tty: true
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
