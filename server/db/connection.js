@@ -1,11 +1,14 @@
 const mongoose = require('mongoose');
 
-const conn = mongoose.connect(process.env.ATLAS_URI)
+// Use the MONGO_URI from config.env, or the local one if testing on your laptop
+const db_url = process.env.MONGO_URI || "mongodb://localhost:27017/expense-tracker";
+
+const con = mongoose.connect(db_url)
     .then(db => {
-        console.log("Databse Connected");
+        console.log("Database Connected Successfully");
         return db;
     }).catch(err => {
-        console.log("Connection Error: " + err);
-    })
+        console.log("Database Connection Error: " + err);
+    });
 
-    module.exports = conn;
+module.exports = con;
