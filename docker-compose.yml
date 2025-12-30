@@ -21,6 +21,6 @@ services:
     stdin_open: true
     tty: true
   mongo:
-    image: mongo
+    image: mongo:latest
     ports:
       - "27017:27017"
