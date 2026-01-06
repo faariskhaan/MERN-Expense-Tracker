@@ -3,7 +3,7 @@ const app = express();
 const cors = require('cors');
 const path = require('path');
 
-require('dotenv').config({ path: "./config.env" });
+require('dotenv').config();
 const port = process.env.PORT || 5000;
 
 // use middlewares

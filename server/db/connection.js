@@ -1,11 +1,19 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const conn = mongoose.connect(process.env.ATLAS_URI)
-    .then(db => {
-        console.log("Databse Connected");
-        return db;
-    }).catch(err => {
-        console.log("Connection Error: " + err);
-    })
+// dotenv already loaded in server.js, but adding this makes it robust
+require("dotenv").config();
 
-    module.exports = conn;
+const conn = mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then((db) => {
+    console.log("Database Connected");
+    return db;
+  })
+  .catch((err) => {
+    console.log("Connection Error: " + err);
+  });
+
+module.exports = conn;
