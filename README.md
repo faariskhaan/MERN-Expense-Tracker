@@ -1,3 +1,43 @@
+# MERN Expense Tracker – DevOps Project
+
+## Project Overview
+This project is a MERN-based Expense Tracker application implemented as part of a DevOps semester project.  
+The focus of this project is DevOps practices including Git collaboration, Docker containerization, CI/CD pipelines, and orchestration concepts.
+
+---
+
+## Tech Stack
+- MongoDB
+- Express.js
+- React.js
+- Node.js
+- Docker & Docker Compose
+- GitHub Actions (CI/CD)
+- Kubernetes (Bonus – manifests prepared)
+
+---
+
+## Branching Strategy
+- master – Final stable release
+- dev – Integration branch
+- feature/backend – Backend configuration
+- feature/docker – Dockerization
+- feature/ci-cd – CI/CD pipeline
+- feature/kubernetes – Kubernetes manifests (bonus)
+
+---
+
+## Team Contributions
+- **Faris**: Docker, Docker Compose, DevOps integration
+- **Ali**: Backend fixes, CI/CD pipeline
+- **Shahmeer**: Kubernetes orchestration (bonus)
+
+---
+
+## How to Run (Docker)
+
+## docker-compose up --build
+
 <div align="center">
   <br>
   <img src="client\public\img\logo_trans.png">
@@ -76,3 +116,5 @@ Zip Download the Repository and Extract it's contents.
     <b>Made with ❤ by </b>
     <a href="https://github.com/sakshgupta">@sakshgupta</a>
 </p>
+
+
